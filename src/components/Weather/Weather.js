@@ -2,17 +2,19 @@ import React from 'react';
 
 export default ({weather, toggleCheckboxChange}) => (
   <div className="checkbox">
+    <select multiple>
     {weather.map(wth => {
       return (
-        <label key={wth.id}>
-          <input
+        <option key={wth.id} value={wth.name}>
+          {/* <input
             type="checkbox"
             value={wth.name}
             onChange={toggleCheckboxChange}
-            />
+            /> */}
           {wth.name}
-        </label>
+        </option>
       )
     })}
+    </select>
   </div>
 );

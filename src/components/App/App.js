@@ -101,6 +101,7 @@ class App extends Component {
       }
       flag = false;
     }
+    availables.pop();
     this.setState({
       ...this.state,
       availables
