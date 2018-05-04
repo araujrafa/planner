@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import request from '../../common/request'
 
 import Button from '../Button/Button';
 import Citys from '../Citys/Citys';
@@ -17,7 +17,10 @@ class App extends Component {
       woeidCity: '',
       weather: [],
       selectsWeather: [],
-      availables: []
+      availables: [],
+      show: false,
+      error: false,
+      selectCity: ''
     }
     this.onChangeText = this.onChangeText.bind(this);
     this.onChangeCity = this.onChangeCity.bind(this);
@@ -26,23 +29,19 @@ class App extends Component {
   }
 
   componentWillMount() {
-    fetch('http://localhost:8882/weather/')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          ...this.state,
-          weather: data
-        })
-      });
+    request('http://localhost:8882/weather/', data => {
+      this.setState({
+        ...this.state,
+        weather: data
+      })
+    });
 
-    fetch('http://localhost:8882/cities/')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          ...this.state,
-          citys: data
-        })
-      });
+    request('http://localhost:8882/cities/', data => {
+      this.setState({
+        ...this.state,
+        citys: data
+      })
+    });
   }
 
   onChangeText(e) {
@@ -55,14 +54,14 @@ class App extends Component {
   onChangeCity(e) {
     this.setState({
       ...this.state,
-      woeidCity: e.target.value,    
+      woeidCity: e.target.value,
+      selectCity: e.target.options[e.target.selectedIndex].text
     });
   }
 
   toggleCheckboxChange(e) {
     let selects = this.state.selectsWeather;
     const value = selects.includes(e.target.value);
-
     if (value) {
       selects.splice(selects.indexOf(e.target.value), 1)
     } else {
@@ -78,7 +77,7 @@ class App extends Component {
   searchResult(data) {
     const vacationDays = this.state.vacationDays;
     const selectsWeather = this.state.selectsWeather;
-    const selectCity = this.state.woeidCity;
+
     let availables = [[]];
     let flag = false;
     let i = 0;
@@ -104,27 +103,37 @@ class App extends Component {
     availables.pop();
     this.setState({
       ...this.state,
-      availables
+      availables,
+      show: true,
+      error:false
     });
   }
 
   onClickButton(e) {
-    fetch(`http://localhost:8882/cities/${this.state.woeidCity}/year/2018`)
-      .then(response => response.json())
-      .then(data => {
+    if (!this.state.vacationDays || !this.state.woeidCity || !this.state.selectsWeather) {
+      this.setState({
+        ...this.state,
+        error: true,
+      });
+    } else {
+      request(`http://localhost:8882/cities/${this.state.woeidCity}/year/2018`, data => {
         this.searchResult(data);
       });
+    }
   }
 
   render() {
     return (
-      <div className="App">
+      <div className="container" style={{maxWidth: '600px', marginTop: '10px'}}>
         <h1>Quantos dias de férias?</h1>
-        <Text value={this.state.vacationDays} onChangeText={this.onChangeText} type={'number'} />
-        <Citys citys={this.state.citys} onChangeCity={this.onChangeCity} />
-        <Weather weather={this.state.weather} toggleCheckboxChange={this.toggleCheckboxChange}/>
-        <Button text={'Buscar'} onClickButton={this.onClickButton} />
-        <Availables availables={this.state.availables} />
+          <Text value={this.state.vacationDays} onChangeText={this.onChangeText} type={'number'} label={'Quantos dias de viagem?'}/>
+          <Citys citys={this.state.citys} onChangeCity={this.onChangeCity} label={'Qual será seu destino?'}/>
+          <Weather weather={this.state.weather} toggleCheckboxChange={this.toggleCheckboxChange} label={'Escolha agora quais climas você deseja!'}/>
+          <Button text={'Buscar'} onClickButton={this.onClickButton} />
+        <div className="c-app__container">
+        </div>
+        <Availables availables={this.state.availables} show={this.state.show} selectCity={this.state.selectCity} />
+        {this.state.error ? <div className="alert alert-danger" style={{marginTop: '10px'}}>Por favor, preencha todos os campos</div> : ''}
       </div>
     );
   }

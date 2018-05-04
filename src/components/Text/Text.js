@@ -1,11 +1,15 @@
 import React from 'react';
 
-export default ({value, onChangeText, type}) => {
+export default ({value, onChangeText, type, label}) => {
   return (
-    <input 
-      type={type}
-      value={value}
-      onChange={onChangeText}
-    />  
+    <div className="form-group">
+      <label>{label}</label>
+      <input
+        className="form-control" 
+        type={type}
+        value={value}
+        onChange={onChangeText}
+      />  
+    </div>
   )
 }

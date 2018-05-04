@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ availables, selectCity }) => {
+export default ({ availables, selectCity, show }) => {
   const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho','Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
   const parseDate = (date) => {
@@ -8,12 +8,10 @@ export default ({ availables, selectCity }) => {
     return [splitDate[2], months[+splitDate[1] - 1]];
   };
 
-  const lengthResults = availables.length - 1;
+  const lengthResults = availables.length;
 
   const listResults = () => {
     const results = availables || [];
-    const dates = [];
-    let i = 0;
     return results.map((elem, i) => {
       const date1 = parseDate(elem[0].date);
       const date2 = parseDate(elem[elem.length - 1].date);
@@ -26,9 +24,14 @@ export default ({ availables, selectCity }) => {
   }
 
   return (
-    <ul>  
-      <li>A saída mostra que, para {selectCity}, existem pelo menos {lengthResults === 1 ? 'uma' : lengthResults } combinações para o ano:</li>
-      {availables.length > 0 ? listResults() : ''}
-    </ul>
+    <div className={`card ${show ? '' : 'd-none'}`} style={{marginTop: '20px'}}>
+      <div className="card-body">
+        <p>A saída mostra que, para {selectCity}, existem pelo menos {lengthResults === 1 ? 'uma' : lengthResults } combinações para o ano:</p>
+        <ul>
+          {availables.length > 0 ? listResults() : ''}
+        </ul>      
+      </div>
+    </div>
+    
   )
 }
