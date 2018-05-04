@@ -5,14 +5,19 @@
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "react-test-renderer": "^16.3.2"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "backend": "java -jar stubby4j-6.0.1.jar -d mobile_tech_assignment/tech_assignment_mobile_stubs.yml"  
+    "backend": "java -jar stubby4j-6.0.1.jar -d mobile_tech_assignment/tech_assignment_mobile_stubs.yml"
   },
   "proxy": "http://localhost:8882"
 }

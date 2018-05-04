@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Weather component Weather changes the class when hovered 1`] = `
+<div>
+  <label>
+    Resultado
+  </label>
+  <div
+    className="form-grup"
+  >
+    <div
+      className="form-check form-check-inline"
+    >
+      <input
+        className="form-check-input"
+        id="Cold"
+        onChange={[Function]}
+        type="checkbox"
+        value="Cold"
+      />
+      <label
+        className="form-check-label"
+        htmlFor="Cold"
+      >
+        Cold
+      </label>
+    </div>
+    <div
+      className="form-check form-check-inline"
+    >
+      <input
+        className="form-check-input"
+        id="Hot"
+        onChange={[Function]}
+        type="checkbox"
+        value="Hot"
+      />
+      <label
+        className="form-check-label"
+        htmlFor="Hot"
+      >
+        Hot
+      </label>
+    </div>
+  </div>
+</div>
+`;

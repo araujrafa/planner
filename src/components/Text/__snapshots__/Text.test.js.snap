@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text component Text changes the class when hovered 1`] = `
+<div
+  className="form-group"
+>
+  <label>
+    Quantidade de dias
+  </label>
+  <input
+    className="form-control"
+    onChange={[Function]}
+    type="number"
+    value=""
+  />
+</div>
+`;

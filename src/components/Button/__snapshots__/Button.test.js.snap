@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button changes the class when hovered 1`] = `
+<button
+  className="btn btn-success"
+  onClick={[Function]}
+>
+  Buscar
+</button>
+`;
+
+exports[`Button component Button changes the class when hovered 1`] = `
+<button
+  className="btn btn-success"
+  onClick={[Function]}
+>
+  Buscar
+</button>
+`;
