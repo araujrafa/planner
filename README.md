@@ -23,13 +23,20 @@ my-app/a
     Text/
     Weather/
   ```  
+## Observações
+Tive alguns problemas de Cross Domain pois são servidores diferentes, utilizei esse [plugin](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi) no chrome para solucionar o problema.
+
 
 ## Scripts
+Entre no diretorio mobile_tech_assignment/ e execute
 
-Entre no diretorio e execute
+### `java -jar stubby4j-6.0.1.jar -d tech_assignment_mobile_stubs.yml`
+
+Para execultar a Api
 
 ### `npm start`
 
+Na raiz do projeto
 Ira rodar em desenvolvimento.<br>
 Abra [http://localhost:3000](http://localhost:3000) para ver a pagina.
 
