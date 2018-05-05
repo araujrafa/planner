@@ -8,10 +8,9 @@ export default ({ availables, selectCity, show }) => {
     return [splitDate[2], months[+splitDate[1] - 1]];
   };
 
-  const lengthResults = availables.length;
-
   const listResults = () => {
     const results = availables || [];
+    // console.log(results)
     return results.map((elem, i) => {
       const date1 = parseDate(elem[0].date);
       const date2 = parseDate(elem[elem.length - 1].date);
@@ -26,7 +25,7 @@ export default ({ availables, selectCity, show }) => {
   return (
     <div className={`card ${show ? '' : 'd-none'}`} style={{marginTop: '20px'}}>
       <div className="card-body">
-        <p>A saída mostra que, para {selectCity}, existem pelo menos {lengthResults === 1 ? 'uma' : lengthResults } combinações para o ano:</p>
+        <p>A saída mostra que, para {selectCity}, existem pelo menos {availables.length === 1 ? 'uma' : availables.length } combinações para o ano:</p>
         <ul>
           {availables.length > 0 ? listResults() : ''}
         </ul>      

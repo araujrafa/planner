@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Availables component Availables changes the class when hovered 1`] = `
+<div
+  className="card "
+  style={
+    Object {
+      "marginTop": "20px",
+    }
+  }
+>
+  <div
+    className="card-body"
+  >
+    <p>
+      A saída mostra que, para 
+      São Paulo
+      , existem pelo menos 
+      uma
+       combinações para o ano:
+    </p>
+    <ul>
+      <li>
+        De 
+        21
+         de 
+        Fevereiro
+         à 
+        21
+         de 
+        Março
+      </li>
+    </ul>
+  </div>
+</div>
+`;
