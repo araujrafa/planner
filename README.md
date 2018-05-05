@@ -1,28 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+## Considerações finais
 
-## Available Scripts
+Foi utilizado como boilerplate do projeto o create-react-app do proprio facebook, ele trás diversas coisas prontas que facilita o trabalho, como jest para realizar testes unitarios e etc...
+Para os testes unitarios foi utilizada a biblioteca Enzyme porque já vem com diversas função prontas para uso. Utilizei tambem uma lib jest-fetch-mock para o mock do fetch
+E devido ao prazo acabei utilizando o bootstrap como css, porque senão não daria para fazer tudo o que desejei para o projeto.
 
-In the project directory, you can run:
+## Estutura do projeto
+my-app/
+  README.md
+  node_modules/
+  package.json
+  public/
+    index.html
+    favicon.ico
+  src/
+   index.css
+   index.js
+   component/
+    App/
+    Button/
+    Citys/
+    Text/
+    Weather/
+     
+
+## Scripts
+
+Entre no diretorio e execute
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Ira rodar em desenvolvimento.<br>
+Abra [http://localhost:3000](http://localhost:3000) para ver a pagina.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](#running-tests) for more information.
+Para rodar os testes.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Realizar o build
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](#deployment) for more information.
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
