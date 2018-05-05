@@ -32,7 +32,7 @@ Entre no diretorio mobile_tech_assignment/ e execute
 
 ### `java -jar stubby4j-6.0.1.jar -d tech_assignment_mobile_stubs.yml`
 
-Para execultar a Api
+Para executar a Api
 
 ### `npm start`
 
